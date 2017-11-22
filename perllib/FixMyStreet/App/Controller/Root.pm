@@ -25,6 +25,9 @@ sub begin : Private {
     my ( $self, $c ) = @_;
 
     $c->forward( 'check_login_required' );
+
+    # See if they're using an access token
+    $c->authenticate(undef, "access_token");
 }
 
 

@@ -81,6 +81,18 @@ __PACKAGE__->config(
                 user_model => 'DB::User',
             },
         },
+        access_token => {
+            use_session => 0,
+            credential => {
+                class => 'AccessToken',
+                token_field => 'extra',
+                token_lookup => { like => "%access_token,I20:TOKEN,%" },
+            },
+            store => {
+                class => 'DBIx::Class',
+                user_model => 'DB::User',
+            },
+        },
     },
 );
 
